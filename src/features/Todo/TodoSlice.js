@@ -17,10 +17,11 @@ const todoSlice = createSlice({
       state.todo.push(newTodo);
     },
     toggleTodo(state, action) {
-      state.todo = state.todo.forEach((todo) => {
+      state.todo = state.todo.map((todo) => {
         if (todo.id === action.payload) {
-          todo.isCompleted = !todo.isCompleted;
+          return { ...todo, isCompleted: !todo.isCompleted }; 
         }
+        return todo; 
       });
     },
     deleteTodo(state, action) {
