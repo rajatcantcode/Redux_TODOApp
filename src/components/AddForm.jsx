@@ -9,18 +9,19 @@ const AddForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addTodo(task));
+    setTask("");
   };
-
 
   return (
     <div className="flex items-center justify-center">
       <form
-        className="bg-white p-6 rounded-lg shadow-md"
+        className="p-6 bg-white rounded-lg shadow-md"
         onSubmit={handleSubmit}
       >
         <input
+          value={task}
           onChange={(e) => setTask(e.target.value)}
-          className="w-full py-2 px-4 text-black mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 text-xs"
+          className="w-full px-4 py-2 mb-4 text-xs text-black border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
           type="text"
           placeholder="Write Tasks :)"
         />
